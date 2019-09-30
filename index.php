@@ -1,34 +1,30 @@
 <?php
 
-// require connection class
+$query = require 'bootstrap.php';
+require 'User.php';
 
-require './database/index.php';
-
-// connect to db
-
-$pdo = Connection::connect();
-
-$query = new QueryBuilder($pdo);
 
 // select all
-// $data = $query->all('users');
+$data = $query->all('users', 'User');
 
-/*
+
 die(var_dump($data));
 
 
-foreach ($data as $dat) {
-   echo "<li>$dat->name</li>";
+foreach ($data as $item) {
+   echo "<li>$item->name</li>";
 }
 
-*/
+
 
 // find one
 
-$data = $query->find('users', 'id', 2);
+// $data = $query->find('users', 'id', 2);
 
-// die(var_dump($data));
+// $data_json= json_encode($data);
 
-echo $data[0]->name;
+// // die(var_dump($data_json));
+
+// echo $data_json;
 
 ?>

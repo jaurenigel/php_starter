@@ -3,15 +3,16 @@
 class Connection
 {
 
-    public static function connect()
+    public static function connect($config)
     {
-        $servername = "localhost";
-        $dbname = "lara_api_pass";
-        $username = "njaure";
-        $password = "xul200nj";
-
         try {
-            return new PDO("mysql:host=$servername; dbname=$dbname", $username, $password);
+            return new PDO(
+                $config['connection'].';dbname'.$config['dbname'],
+                $config['username'],
+                $config['password'],
+                $config['options']
+            );
+            
         } catch (PDOException $e) {
             die($e->getMessage());
         }

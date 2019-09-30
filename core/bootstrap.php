@@ -2,11 +2,11 @@
 
 // require connection class
 
-require './database/index.php';
+require 'core/database/index.php';
 
-$config = require './config.php';
+$config = require 'config.php';
 
-// connect to db
+require './core/Router.php';
 
 return new QueryBuilder(
     Connection::connect($config['database'])

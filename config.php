@@ -1,11 +1,13 @@
 <?php
 
 return [
-    "database" => [
-        "connection" => "mysql:host=localhost",
-        "dbname" => "",
-        "username" => "",
-        "password" => "",
-        "options" => [],
+    'database' => [
+        'connection' => 'localhost',
+        'dbname' => 'lara_api_pass',
+        'username' => 'njaure',
+        'password' => 'xul200nj',
+        'options' => [
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+        ],
     ]
 ];

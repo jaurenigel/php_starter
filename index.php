@@ -1,30 +1,14 @@
 <?php
 
-$query = require 'bootstrap.php';
-require 'User.php';
+$query = require './core/bootstrap.php';
+
+$router = new Router;
+
+$uri = trim($_SERVER['REQUEST_URI'], '/');
 
 
-// select all
-$data = $query->all('users', 'User');
+$router = Router::load('router.php');
+
+require $router->direct($uri);
 
 
-die(var_dump($data));
-
-
-foreach ($data as $item) {
-   echo "<li>$item->name</li>";
-}
-
-
-
-// find one
-
-// $data = $query->find('users', 'id', 2);
-
-// $data_json= json_encode($data);
-
-// // die(var_dump($data_json));
-
-// echo $data_json;
-
-?>

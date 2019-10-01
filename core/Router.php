@@ -20,6 +20,7 @@ class Router
         if (array_key_exists($uri, $this->routes)) {
             return $this->routes[$uri];
         }
-        throw new Exception("Error Processing Request");
+        $error = 'error';
+        return $this->routes[$error];
     }
 }
